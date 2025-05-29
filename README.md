@@ -1,1 +1,1 @@
-# team-dynamos--nithub-
+# Momo - The Dynamos (Nithub Hackathon)
