@@ -1,5 +1,5 @@
 function Onboarding() {
-  return <div></div>;
+  return <div>Onboarding page</div>;
 }
 
 export default Onboarding;
