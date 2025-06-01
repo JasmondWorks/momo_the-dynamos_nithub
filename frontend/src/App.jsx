@@ -1,8 +1,16 @@
-import Welcome from "./pages/welcome_page";
+import Welcome from "./pages/welcomePage";
+import ChatWelcome from "./pages/chatWelcomePage";
+import { BrowserRouter as Router , Routes ,Route } from 'react-router-dom'
 function App() {
   return (
     <>
-      <Welcome />
+      <Router>
+        <Routes>
+          <Route path ="/" element ={<Welcome/>}/>
+          <Route path ="/chat-welcome" element ={<ChatWelcome/>}/>
+        </Routes>
+      </Router>
+
     </>
   );
 }
