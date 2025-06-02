@@ -1,0 +1,22 @@
+.bounce {
+  animation: bounce 1000ms ease-in-out infinite alternate;
+  -webkit-animation: bounce 1000ms ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+  }
+
+  to {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
