@@ -6,7 +6,7 @@ import SuggestionBox from "../component/suggestionBox"
 
 function ChatWelcome({name}){
     return(
-        <div className="border border-2 w-full h-100 text-center flex flex-col items-center">
+        <div className="w-full h-100 text-center flex flex-col items-center">
             <img src={WelcomeFrame} alt="welcome frame" />
             <p>Welcome {name}</p>
             <p>I'm here to help you with medical questions, symptom checks, and general health advice. </p>
