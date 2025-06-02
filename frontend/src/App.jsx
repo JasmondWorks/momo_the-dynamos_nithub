@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Welcome from "./pages/welcome_page";
 import NotFound from "./pages/not_found";
 import Chat from "./pages/chat_page";
 import Medications from "./pages/medications_page";
 import Onboarding from "./pages/onboarding";
 import ProtectedRoutes from "./component/ProtectedRoutes";
+import Welcome from "./pages/welcome_page";
 
 function App() {
   return (
