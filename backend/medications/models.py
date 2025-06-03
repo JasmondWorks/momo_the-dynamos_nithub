@@ -1,8 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
-
-# Create your models here.
-=======
 from users.models import User
 
 class Medication(models.Model):
@@ -24,4 +20,4 @@ class MedicationLog(models.Model):
     
     class Meta:
         ordering = ['-taken_at']
->>>>>>> backend
+
