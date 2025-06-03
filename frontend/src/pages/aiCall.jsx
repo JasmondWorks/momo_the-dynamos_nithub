@@ -31,7 +31,7 @@ function AiCall() {
         <header className="flex justify-between items-center p-5 px-8 ">
           <img src={goBackIcon} alt="back icon" className="h-4" />
         </header>
-        <div className="py-15 md:p-10 flex flex-col justify-between">
+        <div className="py-15 md:p-10 flex flex-col gap-32 justify-center">
           <div className="flex flex-col items-center gap-4">
             <div className="rounded-full p-3 border-1 border-[var(--color-tertiary)] bg-[var(--color-gradient)]">
               <img

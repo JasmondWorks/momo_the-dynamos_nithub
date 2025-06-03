@@ -7,7 +7,6 @@ import ChatWelcome from "./pages/chatWelcomePage";
 import Medications from "./pages/medications_page";
 import Onboarding from "./pages/onboarding";
 import ProtectedRoutes from "./component/ProtectedRoutes";
-import Welcome from "./pages/welcome_page";
 import AiCall from "./pages/aiCall";
 
 function App() {
