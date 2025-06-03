@@ -1,20 +1,22 @@
-import Welcome from "./pages/welcomePage";
-import ChatWelcome from "./pages/chatWelcomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AiCall from "./pages/aiCall";
-import SplashScreen from "./component/splashScreen";
+
+import Welcome from "./pages/welcome_page";
+import NotFound from "./pages/not_found";
+import Chat from "./pages/chat_page";
+import Medications from "./pages/medications_page";
+import Onboarding from "./pages/onboarding";
+
 function App() {
   return (
-    <>
-      {/* <Router>
-        <Routes>
-          <Route path ="/" element ={<Welcome/>}/>
-          <Route path ="/chat-welcome" element ={<ChatWelcome/>}/>
-          <Route path ="/call-ai" element={<AiCall/>}/>
-        </Routes>
-      </Router> */}
-      <SplashScreen />
-    </>
+    <Router>
+      <Routes>
+        <Route element={<Onboarding />} path="/onboarding" />
+        <Route element={<Welcome />} path="/" />
+        <Route element={<Chat />} path="/chat" />
+        <Route element={<Medications />} path="/medications" />
+        <Route element={<NotFound />} path="*" />
+      </Routes>
+    </Router>
   );
 }
 export default App;
