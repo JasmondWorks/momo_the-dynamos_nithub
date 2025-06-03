@@ -8,6 +8,8 @@ import FoodCheck from "./modalsUi/foodCheck";
 import Suggestion from "./modalsUi/suggestion";
 import Congrats from "./modalsUi/congrats";
 import Prescription from "./modalsUi/prescribtion";
+import Store from "./pages/store";
+import WorkoutPage from "./pages/workOutPage";
 function App() {
   return (
     <>
@@ -22,6 +24,8 @@ function App() {
           <Route path ="/suggestion-modal" element={<Suggestion/>}/>
           <Route path ="/prescribtion-modal" element={<Prescription/>}/>
           <Route path ="/congrats-modal" element={<Congrats/>}/>
+          <Route path ="/store" element ={<Store/>}/>
+          <Route path ="/workout-page" element ={<WorkoutPage/>}/>
           
         </Routes>
       </Router>
