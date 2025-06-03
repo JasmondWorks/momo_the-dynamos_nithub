@@ -34,31 +34,31 @@ const mockMedications = [
   {
     id: 5,
     title: "Diabetes",
-    currentDay: 0,
+    currentDay: 3,
     totalDays: 8,
   },
   {
     id: 6,
     title: "The Herps",
-    currentDay: 0,
+    currentDay: 4,
     totalDays: 8,
   },
   {
     id: 7,
     title: "Gono gono",
-    currentDay: 0,
+    currentDay: 5,
     totalDays: 8,
   },
   {
     id: 8,
     title: "Sweetie",
-    currentDay: 0,
+    currentDay: 6,
     totalDays: 8,
   },
   {
     id: 9,
     title: "Craw craw",
-    currentDay: 0,
+    currentDay: 7,
     totalDays: 8,
   },
 ];

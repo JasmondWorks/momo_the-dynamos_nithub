@@ -3,7 +3,6 @@ import Input from "../component/inputField";
 import userFrame from "../assets/userFrame.svg";
 import messageFrame from "../assets/message.svg";
 import SuggestionBox from "../component/suggestionBox";
-<<<<<<< Updated upstream
 import phoneIcon from "../assets/phoneIcon.svg";
 import goBackIcon from "../assets/goBackIcon.svg";
 import { useState } from "react";
@@ -90,45 +89,6 @@ function ChatWelcome({ name = "Bolu" }) {
                     <SuggestionBox img={messageFrame} name="Back Pain causes" />
                   </div>
                 </form>
-=======
-import goBackIcon from "../assets/goBackIcon.svg";
-
-function ChatWelcome({ name }) {
-  return (
-    <>
-      <div className="p-6 lg:p-12 h-[100vh] max-w-5xl mx-auto">
-        <div className="p-5 pb-16 border border-neutral-400 rounded-lg h-full grid grid-rows-[auto_1fr]">
-          <header className="flex justify-between">
-            <img src={goBackIcon} alt="back icon" />
-          </header>
-          <div className="flex items-center justify-center">
-            <div className="flex flex-col items-center gap-10">
-              <div className="flex flex-col items-center gap-3">
-                <img src={WelcomeFrame} alt="welcome frame" className="h-16" />
-                <p>Welcome {name}</p>
-                <p className="text-center text-sm text-[#646368]">
-                  I'm here to help you with medical questions, symptom checks,
-                  and general health advice. <br />
-                  How can I assist you today?
-                </p>
-                <p></p>
-              </div>
-              <div className="flex flex-col items-center gap-3">
-                <Input
-                  type="text"
-                  placeholder=" Enter a Response "
-                  rightIcon={<img src={userFrame} />}
-                  button={<button type="submit">Send</button>}
-                />
-                <p className="text-[#646368] text-sm font-semibold">
-                  Suggestions
-                </p>
-                <div className="flex justify-between pr-5 pl-5 gap-4 ">
-                  <SuggestionBox img={messageFrame} name="Headache" />
-                  <SuggestionBox img={messageFrame} name="Fever and cold" />
-                  <SuggestionBox img={messageFrame} name="Back Pain causes" />
-                </div>
->>>>>>> Stashed changes
               </div>
             </div>
           </div>
