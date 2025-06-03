@@ -6,7 +6,7 @@ import Chat from "./pages/chat_page";
 import ChatWelcome from "./pages/chatWelcomePage";
 import Medications from "./pages/medications_page";
 import Onboarding from "./pages/onboarding";
-import ProtectedRoutes from "./component/ProtectedRoutes";
+import ProtectedRoutes from "./component/protectedRoutes";
 import AiCall from "./pages/aiCall";
 
 import Medication from "./pages/medication";
