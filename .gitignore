@@ -58,5 +58,9 @@ pip-log.txt
 # Local settings
 local_settings.py
 
+<<<<<<< HEAD
 
 node_modules/
+=======
+/migrations
+>>>>>>> backend
