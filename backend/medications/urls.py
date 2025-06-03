@@ -2,7 +2,6 @@ from django.urls import path
 from .views import (
     MedicationListCreateView,
     MedicationRetrieveUpdateDestroyView,
-    SendReminderView,
     MedicationLogListCreateView,
     MedicationLogRetrieveUpdateDestroyView
 )
@@ -15,9 +14,6 @@ urlpatterns = [
     path("medications/<int:pk>/", 
          MedicationRetrieveUpdateDestroyView.as_view(), 
          name="medication-detail"),
-    path("medications/<int:pk>/send-reminder/", 
-         SendReminderView.as_view(), 
-         name="send-reminder"),
     
     # Medication Log endpoints
     path("medication-logs/", 
