@@ -15,31 +15,27 @@ import FoodCheck from "./modalsUi/foodCheck";
 import Suggestion from "./modalsUi/suggestion";
 import Congrats from "./modalsUi/congrats";
 import Prescription from "./modalsUi/prescribtion";
-import WorkoutPage from "./pages/workOutPage"
+import WorkoutPage from "./pages/workOutPage";
 import Store from "./pages/store";
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Welcome />} />
         <Route element={<Onboarding />} path="/onboarding" />
         <Route element={<Welcome />} path="/" />
-        <Route
+        {/* <Route
           element={
             <ProtectedRoutes>
               <Medications />
             </ProtectedRoutes>
           }
           path="/medications"
-        />
+        /> */}
         <Route element={<Chat />} path="/chats/:chatId" />
         <Route element={<AiCall />} path="/chats/:chatId/call" />
         <Route element={<ChatWelcome />} path="/chat-welcome" />
-        <Route element={<Medications />} path="/medications" />
-        <Route element={<NotFound />} path="*" />
-
-        <Route path="/" element={<Welcome />} />
-        <Route path="/chat-welcome" element={<ChatWelcome />} />
         <Route path="/call-ai" element={<AiCall />} />
         <Route path="/medication" element={<Medication />} />
         <Route path="/feeling-modal" element={<CheckUp />} />
@@ -47,8 +43,9 @@ function App() {
         <Route path="/suggestion-modal" element={<Suggestion />} />
         <Route path="/prescribtion-modal" element={<Prescription />} />
         <Route path="/congrats-modal" element={<Congrats />} />
-        <Route path="/store-page" element ={<Store/>} />
-        <Route path="/workout-page" element ={<WorkoutPage/>}/>
+        <Route path="/store-page" element={<Store />} />
+        <Route path="/workout-page" element={<WorkoutPage />} />
+        <Route element={<NotFound />} path="*" />
       </Routes>
     </Router>
   );

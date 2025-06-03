@@ -1,35 +1,130 @@
-import medImg from "../assets/medImg.svg"
-import Button from "../component/button"
-import medButton from "../assets/medButton.svg"
-import momoFace from "../assets/momoFace.svg"
-import momoCoin from "../assets/momoCoin.svg"
-function Medication(){
-    return(
-        <div className="" >
-            <div className="relative flex flex-row items-center justify-center bg-[#FF808D] shadow-2xs h-auto w-[90%] rounded-t-xl m-4 sm:m-20 px-4 sm:px-10 py-6">
-            <p className="text-black text-3xl sm:text-6xl text-left max-w-[60%] sm:max-w-none">
-                Medication
-            </p>
-            <img
-                src={medImg}
-                alt="Medication"
-                className="w-24 sm:w-40 h-auto object-contain absolute right-10"
-            />
-            </div>
-            <div className="flex justify-center items-center p-12">
-                <img src={momoFace} alt="momoFrame" />
-                <img src={momoCoin} alt="momocoin " className="absolute right-5 p-10" />
+import medImg from "../assets/medImg.svg";
+import Button from "../component/button";
+import medButton from "../assets/medButton.svg";
+import momoFace from "../assets/momoFace.svg";
+import momoCoin from "../assets/momoCoin.svg";
+import BorderLayout from "../component/borderLayout";
+import { useEffect, useState } from "react";
 
-            </div>
-            <div className="">
-                <div className="flex flex-col items-center justify-center ">
-                    
-                    <Button name = "Malaria" color="#FFE5E8" widthClass="w-128" day="1"/>
+const mockMedications = [
+  {
+    id: 1,
+    title: "Headache",
+    currentDay: 2,
+    totalDays: 5,
+  },
+  {
+    id: 2,
+    title: "Typhoid",
+    currentDay: 1,
+    totalDays: 3,
+  },
+  {
+    id: 3,
+    title: "Headache",
+    currentDay: 3,
+    totalDays: 3,
+  },
+  {
+    id: 4,
+    title: "Cholera",
+    currentDay: 0,
+    totalDays: 8,
+  },
+  {
+    id: 5,
+    title: "Diabetes",
+    currentDay: 0,
+    totalDays: 8,
+  },
+  {
+    id: 6,
+    title: "The Herps",
+    currentDay: 0,
+    totalDays: 8,
+  },
+  {
+    id: 7,
+    title: "Gono gono",
+    currentDay: 0,
+    totalDays: 8,
+  },
+  {
+    id: 8,
+    title: "Sweetie",
+    currentDay: 0,
+    totalDays: 8,
+  },
+  {
+    id: 9,
+    title: "Craw craw",
+    currentDay: 0,
+    totalDays: 8,
+  },
+];
 
-                </div>
-
-                <img src={medButton} alt="med Button" className="absolute bottom-2 right-2 pr-12 pb-12" />
-            </div>
+function Medication() {
+  return (
+    <BorderLayout className="relative">
+      <div className="grid grid-rows-[auto_1fr] h-full">
+        <div className="relative flex flex-row items-center justify-center bg-gradient-to-r from-[#ff808d] to-[#ffe5e8] from-50% shadow-2xs h-auto px-4 sm:px-10 py-6 rounded-t-lg">
+          <p className="text-black text-3xl sm:text-6xl text-left max-w-[60%] sm:max-w-none font-semibold">
+            Medications
+          </p>
+          <img
+            src={medImg}
+            alt="Medication"
+            className="w-24 sm:w-40 h-auto object-contain absolute right-10"
+          />
         </div>
-    )
-}export default Medication
+        <div className="grid grid-rows-[auto_1fr] overflow-hidden">
+          <div className="flex justify-center items-center relative p-8">
+            <img src={momoFace} alt="momoFrame" className="h-24" />
+            <div className="flex gap-2 absolute right-5 items-center">
+              <img src={momoCoin} alt="momocoin " className=" h-8" />
+              <p className="text-xs font-bold">140</p>
+            </div>
+          </div>
+          <div className="px-5 pb-5 gap-y-5 max-w-2xl no-scrollbar  mx-auto overflow-auto flex flex-col w-full">
+            {mockMedications.map((medication) => (
+              <MedicationItem key={medication.id} {...medication} />
+            ))}
+          </div>
+
+          <button className="absolute bottom-5 right-5 cursor-pointer">
+            <img src={medButton} alt="add icon" className="h-20" />
+          </button>
+        </div>
+      </div>
+    </BorderLayout>
+  );
+}
+
+function MedicationItem({ title, currentDay, totalDays }) {
+  // const progress = Math.trunc((currentDay / totalDays) * 100);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setProgress(Math.trunc((currentDay / totalDays) * 100));
+  }, [currentDay, totalDays]);
+
+  // console.log("id", id, "fraction", currentDay / totalDays);
+  console.log(progress);
+
+  return (
+    <div className="relative bg-[#ffe5e8]  flex items-center justify-center rounded-lg">
+      {/* <Button name={title} color="#FFE5E8" widthClass="w-128" day="1" /> */}
+      <p className="z-1 text-lg p-2 font-medium">{title}</p>
+      <div
+        style={{ width: `${progress}%` }}
+        className={`bg-[var(--color-primary)] h-full  absolute left-0 rounded-l-lg transition-all duration-1000 ease-out ${
+          progress === 100 ? "rounded-r-lg" : ""
+        }`}
+      ></div>
+      <div className="absolute right-8 font-medium text-[#666]">
+        Day {currentDay}/{totalDays}
+      </div>
+    </div>
+  );
+}
+export default Medication;
