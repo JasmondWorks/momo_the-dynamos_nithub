@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import SpinnerFull from "./SpinnerFull";
+import SpinnerFull from "./spinnerFull";
 import { useAuth } from "../contexts/authContext";
 import SplashScreen from "./splashScreen";
 
