@@ -5,6 +5,7 @@
 :root {
   --color-primary: #ff9da7;
   --color-secondary: #c39bd3;
+  --color-secondary--light: #efe7ef;
   --color-tertiary: #8e44ad;
   --color-gradient: #f2e7ec;
   --color-background: #fdfcfc;
@@ -16,4 +17,13 @@ body {
   font-family: var(--font-family-body);
   font-weight: 400;
   font-style: normal;
+  color: #1f1f1f;
+}
+
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
