@@ -10,14 +10,16 @@ function Modal({ isOpen, onClose, children }) {
         if (e.currentTarget === e.target) onClose();
       }}
     >
-      <div className="bg-white rounded-lg overflow-hidden shadow-lg relative">
-        <button
-          className="cursor-pointer rounded-full p-1 bg-neutral-200 absolute right-3 top-3"
-          onClick={onClose}
-        >
-          <X color="#333" strokeWidth={3} size={18} />
-        </button>
-        {children}
+      <div className="p-5">
+        <div className="bg-white rounded-lg overflow-hidden shadow-lg relative mx-auto">
+          <button
+            className="cursor-pointer rounded-full p-1 bg-neutral-200 absolute right-3 top-3"
+            onClick={onClose}
+          >
+            <X color="#333" strokeWidth={3} size={18} />
+          </button>
+          {children}
+        </div>
       </div>
     </div>
   );

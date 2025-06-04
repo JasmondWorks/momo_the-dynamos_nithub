@@ -104,7 +104,7 @@ function Medication() {
       onSubmitKey: null,
     },
   ];
-  const [activeModal, setActiveModal] = useState(allModals.at(-1).key);
+  const [activeModal, setActiveModal] = useState(null);
 
   function handleCloseModal() {
     setActiveModal(null);
