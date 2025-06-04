@@ -10,13 +10,22 @@ import { Link } from "react-router-dom";
 import Button from "../component/button";
 import PatientLog from "../component/patientLog";
 import Patient1 from "../assets/patient1.svg"
-
+import { useState } from "react";
+import NewPatient from "./newpatient";
 function PatientPage(){
+  const[click,setClick] = useState(false)
+
+  const handleClick = () => {
+    console.log(click)
+    setClick(true)
+  }
     return(
 
-        
-        <div className="relative w-full h-screen flex flex-col ">
-      <div className="absolute top-0 w-full h-[60%] xs:h-[62%] md:h-[65%] lg:h-[70%] bg-[#FF9DA7]" />
+        <>
+      {click&&(<NewPatient setClick={setClick} />)}
+        <div className="relative w-full h-screen flex flex-col z-10">
+      <div className="absolute top-0 w-full h-[60%] xs:h-[62%] md:h-[65%] lg:h-[70%] bg-[#FF9DA7] " />
+
 
       <div className="z-100">
         <Navbar />
@@ -30,7 +39,7 @@ function PatientPage(){
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam
             voluptatum sequi tempora?
           </p>
-          <Button color='#8E44AD' widthClass='w-36' name="Create New Patient" className="border-2 border-e-black mt-6"/>
+          <Button color='#8E44AD' widthClass='w-36' name="Create New Patient" className="border-2 border-e-black mt-6" onClick={handleClick} />
         </div>
             <p className="text-center font-bold m-4">Patient List</p>
         <div className="z-125 overflow-x-auto no-scrollbar flex gap-4 px-5 sm:max-w-4xl lg:max-w-6xl sm:mx-auto">
@@ -94,7 +103,8 @@ function PatientPage(){
           </div> */}
         {/* </div> */}
       {/* </div> */}
-    </div>
+        </div>
+        </>
   );
     
 }export default PatientPage

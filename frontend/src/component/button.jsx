@@ -32,7 +32,7 @@ import { Link } from "react-router-dom";
 //     >
 //       {children}
 
-function Button({ color, name, widthClass, day, current, maxday ,className}) {
+function Button({ color, name, widthClass, day, current, maxday ,className, onClick}) {
   const backgroundColor =
     color === "#FFE5E8" ? "#FFE5E8" : color === "#8E44AD" ? "#8E44AD" : "#ccc"; // default gray
 
@@ -46,6 +46,7 @@ function Button({ color, name, widthClass, day, current, maxday ,className}) {
       onMouseOut={(e) =>
         (e.currentTarget.style.backgroundColor = backgroundColor)
       }
+      onClick={onClick}
       className={`text-black font-medium px-6 py-2 rounded-xl shadow-md transition duration-300  ${widthClass}`}
     >
       {name}
