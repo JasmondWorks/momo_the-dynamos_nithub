@@ -10,7 +10,7 @@ function Button({
 }) {
   const baseStyles = `font-bold rounded-lg border-0 ${
     !disabled ? "cursor-pointer" : "cursor-not-allowed"
-  } transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-tertiary)]`;
+  } transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-tertiary)] inline-block`;
   const variants = {
     text: baseStyles + ` text-[var(--color-tertiary)] p-2`,
     primary:

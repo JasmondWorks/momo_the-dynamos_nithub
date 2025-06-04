@@ -11,6 +11,7 @@ import BorderLayout from "../component/borderLayout";
 import goBackIcon from "../assets/goBackIcon.svg";
 import storeIcon from "../assets/storeIcon.svg";
 import { useState } from "react";
+import { useAuth } from "../contexts/authContext";
 
 const products = [
   { id: 1, name: "1 Day Trainer", cost: 50 },
@@ -22,6 +23,9 @@ function Store() {
   const [coins, setCoins] = useState(200);
   const [myItems, setMyItems] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(true);
+  const { user } = useAuth();
+
+  console.log(user);
 
   const handleBuy = (product) => {
     if (coins >= product.cost) {
@@ -66,12 +70,8 @@ function Store() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {/* <div className="flex gap-4 overflow-auto no-scrollbar"> */}
             {products.map((product) => (
-              <div className="w-full min-w-[200px]">
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onBuy={handleBuy}
-                />
+              <div className="w-full min-w-[200px]" key={product.id}>
+                <ProductCard product={product} onBuy={handleBuy} />
               </div>
             ))}
           </div>

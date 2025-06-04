@@ -4,17 +4,11 @@ import Welcome from "./pages/welcomePage";
 import NotFound from "./pages/not_found";
 import Chat from "./pages/chat_page";
 import ChatWelcome from "./pages/chatWelcomePage";
-import Medications from "./pages/medications_page";
 import Onboarding from "./pages/onboarding";
 import ProtectedRoutes from "./component/protectedRoutes";
 import AiCall from "./pages/aiCall";
 
 import Medication from "./pages/medication";
-import CheckUp from "./modalsUi/checkUp";
-import FoodCheck from "./modalsUi/foodCheck";
-import Suggestion from "./modalsUi/suggestion";
-import Congrats from "./modalsUi/congrats";
-import Prescription from "./modalsUi/prescribtion";
 import WorkoutPage from "./pages/workOutPage";
 import Store from "./pages/store";
 
@@ -37,14 +31,30 @@ function App() {
         <Route element={<AiCall />} path="/chats/:chatId/call" />
         <Route element={<ChatWelcome />} path="/chat-welcome" />
         <Route path="/call-ai" element={<AiCall />} />
-        <Route path="/medication" element={<Medication />} />
-        <Route path="/feeling-modal" element={<CheckUp />} />
-        <Route path="/eating-check-modal" element={<FoodCheck />} />
-        <Route path="/suggestion-modal" element={<Suggestion />} />
-        <Route path="/prescribtion-modal" element={<Prescription />} />
-        <Route path="/congrats-modal" element={<Congrats />} />
-        <Route path="/store-page" element={<Store />} />
-        <Route path="/workout-page" element={<WorkoutPage />} />
+        <Route
+          path="/medication"
+          element={
+            <ProtectedRoutes>
+              <Medication />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/store-page"
+          element={
+            <ProtectedRoutes>
+              <Store />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/workout-page"
+          element={
+            <ProtectedRoutes>
+              <WorkoutPage />
+            </ProtectedRoutes>
+          }
+        />
         <Route element={<NotFound />} path="*" />
       </Routes>
     </Router>

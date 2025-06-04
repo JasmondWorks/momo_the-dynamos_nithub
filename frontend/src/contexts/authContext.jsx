@@ -3,12 +3,16 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  const [user, setUser] = useState({ email: "obafemilared@gmail.com" });
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  function login() {}
+  function login(userType) {
+    setUser(userType);
+  }
 
-  function logout() {}
+  function logout() {
+    setUser("");
+  }
 
   useEffect(() => {
     setTimeout(function () {

@@ -12,7 +12,7 @@ import Suggestion from "../modalsUi/suggestion";
 import Prescription from "../modalsUi/prescribtion";
 import Congrats from "../modalsUi/congrats";
 import NewMedication from "../component/createNewMedication";
-import goBackIcon from "../assets/goBackIcon.svg";
+// import goBackIcon from "../assets/goBackIcon.svg";
 
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
@@ -141,10 +141,11 @@ function Medication() {
           <div className="px-5 pb-5 gap-y-5 max-w-2xl mx-auto flex flex-col w-full">
             {mockMedications.map((medication) => (
               <div
+                key={medication.id}
                 className="cursor-pointer"
                 onClick={() => setActiveModal(allModals[0].key)}
               >
-                <MedicationItem key={medication.id} {...medication} />
+                <MedicationItem {...medication} />
               </div>
             ))}
           </div>

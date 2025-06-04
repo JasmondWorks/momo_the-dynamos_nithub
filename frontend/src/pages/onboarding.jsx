@@ -7,12 +7,13 @@ import goBackIcon from "../assets/goBackIcon.svg";
 import editIcon from "../assets/editIcon.svg";
 import padlockIcon from "../assets/padlockIcon.svg";
 import Input from "../component/input";
-import Button from "../component/button";
-import { useForm } from "react-hook-form";
+import Button from "../component/button2";
+// import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/authContext";
 
 function Onboarding() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [language, setLanguage] = useState("");
   const [name, setName] = useState("");
 
@@ -37,9 +38,7 @@ function Onboarding() {
             setName={setName}
           />
         )}
-        {step === 3 && (
-          <SignUp onGoNext={handleGoNext} onGoPrev={handleGoPrev} />
-        )}
+        {step === 3 && <SignUp onGoNext={handleGoNext} onGoPrev={() => {}} />}
       </div>
     </div>
   );
@@ -168,21 +167,32 @@ function EnterName({ onGoNext, onGoPrev, name, setName }) {
   );
 }
 function SignUp({ onGoPrev }) {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm({
-    mode: "onChange",
-  });
-  const password = watch("password");
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm({
+  //   mode: "onChange",
+  // });
+  // const password = watch("password");
   const navigate = useNavigate();
+  const { login } = useAuth();
+  const [userType, setUserType] = useState("");
 
-  const onSubmit = (data) => {
-    console.log("Form submitted!", data);
+  // const onSubmit = (data) => {
+  //   console.log("Form submitted!", data);
+  //   navigate("/");
+  // };
+  function onSubmit(e) {
+    e.preventDefault();
+
+    login(userType);
+
     navigate("/");
-  };
+  }
+
+  console.log(userType);
 
   return (
     <div className="h-full">
@@ -194,54 +204,68 @@ function SignUp({ onGoPrev }) {
           <img src={goBackIcon} alt="back icon" />
         </button>
         <PageTitle title="Enter details" />
-        <Button
+        {/* <Button
           variant="text"
           className="absolute right-0 font-medium bottom-[50%] translate-y-[50%]"
         >
           Skip
-        </Button>
+        </Button> */}
       </div>
       <div className="h-full max-w-xl mx-auto flex items-center">
         <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-8 w-full"
+          // onSubmit={handleSubmit(onSubmit)}
+          onSubmit={onSubmit}
+          className="flex flex-col gap-6 w-full"
         >
-          <h2 className="text-3xl text-center">Kindly create a password</h2>
+          <h2 className="text-2xl text-center">Kindly Login to your Account</h2>
           <div className="space-y-2">
-            <Input
-              placeholder="Create Password"
-              className="lg:min-w-[500px]"
-              icon={padlockIcon}
-              iconPosition="left"
-              type="password"
-              {...register("password", {
-                required: "Password is required",
-                minLength: {
-                  value: 6,
-                  message: "Password must be at least 6 characters",
-                },
-              })}
-            />
-            {errors.password && (
-              <ErrorMessage message={errors.password.message} />
-            )}
+            <select
+              className="border border-neutral-400 w-full p-2 rounded-lg"
+              name=""
+              id=""
+              onChange={(e) => setUserType(e.target.value)}
+              value={userType}
+              required
+            >
+              <option value="">Select Usertype</option>
+              <option value="Patient">Patient</option>
+              <option value="Doctor">Doctor</option>
+            </select>
           </div>
           <div className="space-y-2">
             <Input
-              placeholder="Confirm Password"
+              placeholder="Email Address"
+              className="lg:min-w-[500px]"
+              icon={padlockIcon}
+              iconPosition="left"
+              // {...register("password", {
+              //   required: "Password is required",
+              //   minLength: {
+              //     value: 6,
+              //     message: "Password must be at least 6 characters",
+              //   },
+              // })}
+            />
+            {/* {errors.password && (
+              <ErrorMessage message={errors.password.message} />
+            )} */}
+          </div>
+          <div className="space-y-2">
+            <Input
+              placeholder="Password"
               className="lg:min-w-[500px]"
               icon={padlockIcon}
               iconPosition="left"
               type="password"
-              {...register("confirmPassword", {
-                required: "Please confirm your password",
-                validate: (value) =>
-                  value === password || "Passwords do not match",
-              })}
+              // {...register("confirmPassword", {
+              //   required: "Please confirm your password",
+              //   validate: (value) =>
+              //     value === password || "Passwords do not match",
+              // })}
             />
-            {errors.confirmPassword && (
+            {/* {errors.confirmPassword && (
               <ErrorMessage message={errors.confirmPassword.message} />
-            )}
+            )} */}
           </div>
           <Button>Sign Up</Button>
         </form>
