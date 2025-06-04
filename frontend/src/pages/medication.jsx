@@ -5,6 +5,12 @@ import momoFace from "../assets/momoFace.svg";
 import momoCoin from "../assets/momoCoin.svg";
 import BorderLayout from "../component/borderLayout";
 import { useEffect, useState } from "react";
+import Modal from "../component/modal";
+import CheckUp from "../modalsUi/checkUp";
+import FoodCheck from "../modalsUi/foodCheck";
+import Suggestion from "../modalsUi/suggestion";
+import Prescription from "../modalsUi/prescribtion";
+import Congrats from "../modalsUi/congrats";
 
 const mockMedications = [
   {
@@ -64,6 +70,40 @@ const mockMedications = [
 ];
 
 function Medication() {
+  const allModals = [
+    {
+      key: "feeling",
+      component: <CheckUp onSubmit={() => setActiveModal("eating")} />,
+      onSubmitKey: "eating",
+    },
+    {
+      key: "eating",
+      component: (
+        <FoodCheck
+          onSubmit={() => setActiveModal("prescription")}
+          onSubmit2={() => setActiveModal("suggestion")}
+        />
+      ),
+      onSubmitKey: "suggestion",
+    },
+    {
+      key: "suggestion",
+      component: <Suggestion onSubmit={() => setActiveModal("prescription")} />,
+      onSubmitKey: "prescription",
+    },
+    {
+      key: "prescription",
+      component: <Prescription onSubmit={() => setActiveModal("congrats")} />,
+      onSubmitKey: "congrats",
+    },
+    { key: "congrats", component: <Congrats />, onSubmitKey: null },
+  ];
+  const [activeModal, setActiveModal] = useState(null);
+
+  function handleCloseModal() {
+    setActiveModal(null);
+  }
+
   return (
     <BorderLayout className="relative">
       <div className="grid grid-rows-[auto_1fr] h-full">
@@ -77,7 +117,7 @@ function Medication() {
             className="w-24 sm:w-40 h-auto object-contain absolute right-10"
           />
         </div>
-        <div className="grid grid-rows-[auto_1fr] overflow-hidden">
+        <div className="grid grid-rows-[auto_1fr] overflow-auto">
           <div className="flex justify-center items-center relative p-8">
             <img src={momoFace} alt="momoFrame" className="h-24" />
             <div className="flex gap-2 absolute right-5 items-center">
@@ -85,9 +125,14 @@ function Medication() {
               <p className="text-xs font-bold">140</p>
             </div>
           </div>
-          <div className="px-5 pb-5 gap-y-5 max-w-2xl no-scrollbar  mx-auto overflow-auto flex flex-col w-full">
+          <div className="px-5 pb-5 gap-y-5 max-w-2xl mx-auto flex flex-col w-full">
             {mockMedications.map((medication) => (
-              <MedicationItem key={medication.id} {...medication} />
+              <div
+                className="cursor-pointer"
+                onClick={() => setActiveModal(allModals[0].key)}
+              >
+                <MedicationItem key={medication.id} {...medication} />
+              </div>
             ))}
           </div>
 
@@ -96,25 +141,29 @@ function Medication() {
           </button>
         </div>
       </div>
+      {allModals.map((modal) => (
+        <Modal
+          onClose={handleCloseModal}
+          key={modal.key}
+          isOpen={activeModal === modal.key}
+        >
+          {modal.component}
+        </Modal>
+      ))}
     </BorderLayout>
   );
 }
 
 function MedicationItem({ title, currentDay, totalDays }) {
-  // const progress = Math.trunc((currentDay / totalDays) * 100);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     setProgress(Math.trunc((currentDay / totalDays) * 100));
   }, [currentDay, totalDays]);
 
-  // console.log("id", id, "fraction", currentDay / totalDays);
-  console.log(progress);
-
   return (
     <div className="relative bg-[#ffe5e8]  flex items-center justify-center rounded-lg">
-      {/* <Button name={title} color="#FFE5E8" widthClass="w-128" day="1" /> */}
-      <p className="z-1 text-lg p-2 font-medium">{title}</p>
+      <p className="z-1 p-3 font-semibold">{title}</p>
       <div
         style={{ width: `${progress}%` }}
         className={`bg-[var(--color-primary)] h-full  absolute left-0 rounded-l-lg transition-all duration-1000 ease-out ${

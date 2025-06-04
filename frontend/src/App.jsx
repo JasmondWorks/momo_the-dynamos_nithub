@@ -8,7 +8,6 @@ import Medications from "./pages/medications_page";
 import Onboarding from "./pages/onboarding";
 import ProtectedRoutes from "./component/protectedRoutes";
 import AiCall from "./pages/aiCall";
-<<<<<<< Updated upstream
 
 import Medication from "./pages/medication";
 import CheckUp from "./modalsUi/checkUp";
@@ -49,19 +48,6 @@ function App() {
         <Route element={<NotFound />} path="*" />
       </Routes>
     </Router>
-=======
-function App() {
-  return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/chat-welcome" element={<ChatWelcome />} />
-          <Route path="/call-ai" element={<AiCall />} />
-        </Routes>
-      </Router>
-    </>
->>>>>>> Stashed changes
   );
 }
 export default App;
