@@ -32,7 +32,7 @@ import { Link } from "react-router-dom";
 //     >
 //       {children}
 
-function Button({ color, name, widthClass, day, current, maxday }) {
+function Button({ color, name, widthClass, day, current, maxday ,className}) {
   const backgroundColor =
     color === "#FFE5E8" ? "#FFE5E8" : color === "#8E44AD" ? "#8E44AD" : "#ccc"; // default gray
 

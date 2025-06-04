@@ -17,6 +17,10 @@ import Congrats from "./modalsUi/congrats";
 import Prescription from "./modalsUi/prescribtion";
 import WorkoutPage from "./pages/workOutPage";
 import Store from "./pages/store";
+import NewMedication from "./pages/newMed";
+import CreateNewMed from "./modalsUi/createNewMed";
+import PatientPage from "./pages/patientPage";
+import NewPatient from "./pages/newpatient";
 
 function App() {
   return (
@@ -42,10 +46,13 @@ function App() {
         <Route path="/eating-check-modal" element={<FoodCheck />} />
         <Route path="/suggestion-modal" element={<Suggestion />} />
         <Route path="/prescribtion-modal" element={<Prescription />} />
-        <Route path="/congrats-modal" element={<Congrats />} />
-        <Route path="/store-page" element={<Store />} />
-        <Route path="/workout-page" element={<WorkoutPage />} />
-        <Route element={<NotFound />} path="*" />
+        <Route path="/congrats-modal" element={<Congrats />} />n
+        <Route path="/store-page" element ={<Store/>} />
+        <Route path="/workout-page" element ={<WorkoutPage/>}/>
+        <Route path="/new-med" element ={<NewMedication/>}/>
+        {/* <Route path ="/create-new-med-modal" element ={<CreateNewMed/>}/> */}
+        <Route path="/patient-page" element ={<PatientPage/>}/>
+        <Route path ="/new-patient" element ={<NewPatient/>}/>
       </Routes>
     </Router>
   );
