@@ -20,13 +20,18 @@ class MessageSerializer(serializers.ModelSerializer):
 class ChatRoomSerializer(serializers.ModelSerializer):
     participants = UserSerializer(many=True, read_only=True)
     last_message = serializers.SerializerMethodField()
+    unread_count = serializers.SerializerMethodField()
 
     class Meta:
         model = ChatRoom
-        fields = ['id', 'name', 'participants', 'created_at', 'last_message']
+        fields = ['id', 'name', 'participants', 'created_at', 'last_message', 'unread_count']
 
     def get_last_message(self, obj):
         last_message = obj.messages.last()
         if last_message:
             return MessageSerializer(last_message).data
-        return None 
+        return None
+
+    def get_unread_count(self, obj):
+        user = self.context['request'].user
+        return obj.messages.filter(is_read=False).exclude(sender=user).count() 
