@@ -12,6 +12,10 @@ import Suggestion from "../modalsUi/suggestion";
 import Prescription from "../modalsUi/prescribtion";
 import Congrats from "../modalsUi/congrats";
 import NewMedication from "../component/createNewMedication";
+import goBackIcon from "../assets/goBackIcon.svg";
+
+import { Link } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 const mockMedications = [
   {
@@ -114,6 +118,9 @@ function Medication() {
     <BorderLayout className="relative">
       <div className="grid grid-rows-[auto_1fr] h-full">
         <div className="relative flex flex-row items-center justify-center bg-gradient-to-r from-[#ff808d] to-[#ffe5e8] from-50% shadow-2xs h-auto px-4 sm:px-10 py-6 rounded-t-lg">
+          <Link to="/" className="left-3 absolute bg-white p-1 rounded-full">
+            <ChevronLeft color="black" />
+          </Link>
           <p className="text-black text-3xl sm:text-6xl text-left max-w-[60%] sm:max-w-none font-semibold">
             Medications
           </p>
@@ -124,7 +131,7 @@ function Medication() {
           />
         </div>
         <div className="grid grid-rows-[auto_1fr] overflow-auto">
-          <div className="flex justify-center items-center relative p-8">
+          <div className="flex justify-center items-center p-8 relative">
             <img src={momoFace} alt="momoFrame" className="h-24" />
             <div className="flex gap-2 absolute right-5 items-center">
               <img src={momoCoin} alt="momocoin " className=" h-8" />

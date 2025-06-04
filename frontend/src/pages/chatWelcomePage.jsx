@@ -33,7 +33,9 @@ function ChatWelcome({ name = "Bolu" }) {
         <div className="max-w-5xl mx-auto text-sm h-full">
           <div className="p-3 px-5 border border-neutral-400 rounded-lg h-full grid grid-rows-[auto_1fr] gap-5">
             <header className="flex justify-between items-center">
-              <img src={goBackIcon} alt="back icon" className="h-4" />
+              <Link to="/">
+                <img src={goBackIcon} alt="back icon" className="h-4" />
+              </Link>
               <Link
                 to="/chats/abc/call"
                 className="bg-[var(--color-primary)] rounded-full p-2 cursor-pointer"
