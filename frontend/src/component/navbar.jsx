@@ -45,14 +45,14 @@ function Navbar() {
             hasScrolled ? "!border-b-0 text-[var(--color-tertiary)]" : ""
           } p-1`}
         >
-          Patients
+          Doctor
         </Link>
         <Link
           to="#"
           className="opacity-70 border-b-[3px] border-transparent p-1"
           aria-disabled
         >
-          Doctors
+          Patient
         </Link>
       </div>
 
