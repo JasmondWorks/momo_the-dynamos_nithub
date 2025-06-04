@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from .models import ChatRoom, Message
-from .serializers import ChatRoomSerializer, MessageSerializer
+from chat.models import ChatRoom, Message
+from chat.serializers import ChatRoomSerializer, MessageSerializer
 from django.db.models import Q
 
 
