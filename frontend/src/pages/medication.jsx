@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-import medImg from "../assets/medImg.svg"
-import Button from "../component/button"
-import medButton from "../assets/medButton.svg"
-import momoFace from "../assets/momoFace.svg"
-import momoCoin from "../assets/momoCoin.svg"
-import CreateNewMed from "../modalsUi/createNewMed"
-import { useState } from "react"
-import { Link } from "react-router-dom"
-function Medication(){
-
-    const[cancel,setCanel] =useState(false)
-
-    const handleCancel =() =>{
-        setCanel(!cancel)
-        console.log(cancel)
-    }
-    
-    return(
-
-        <div className="" >
-            { cancel &&  <CreateNewMed/>  }
-            
-            <div className="relative flex flex-row items-center justify-center bg-[#FF808D] shadow-2xs h-auto w-[90%] rounded-t-xl m-4 sm:m-20 px-4 sm:px-10 py-6">
-            <p className="text-black text-3xl sm:text-6xl text-left max-w-[60%] sm:max-w-none">
-                Medication
-            </p>
-            <img
-                src={medImg}
-                alt="Medication"
-                className="w-24 sm:w-40 h-auto object-contain absolute right-10"
-            />
-            </div>
-            <div className="flex justify-center items-center p-12">
-                <img src={momoFace} alt="momoFrame" />
-                <img src={momoCoin} alt="momocoin " className="absolute right-5 p-10" />
-=======
 import medImg from "../assets/medImg.svg";
 import Button from "../component/button";
 import medButton from "../assets/medButton.svg";
@@ -50,7 +13,6 @@ import Prescription from "../modalsUi/prescribtion";
 import Congrats from "../modalsUi/congrats";
 import NewMedication from "../component/createNewMedication";
 import goBackIcon from "../assets/goBackIcon.svg";
->>>>>>> origin/main
 
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
@@ -112,11 +74,6 @@ const mockMedications = [
   },
 ];
 
-<<<<<<< HEAD
-                <img onClick={handleCancel} src={medButton} alt="med Button" className="absolute bottom-2 right-2 pr-12 pb-12" 
-               />
-            </div>
-=======
 function Medication() {
   const allModals = [
     {
@@ -172,7 +129,6 @@ function Medication() {
             alt="Medication"
             className="w-24 sm:w-40 h-auto object-contain absolute right-10"
           />
->>>>>>> origin/main
         </div>
         <div className="grid grid-rows-[auto_1fr] overflow-auto">
           <div className="flex justify-center items-center p-8 relative">
