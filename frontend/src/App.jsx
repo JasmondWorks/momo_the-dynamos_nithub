@@ -15,7 +15,7 @@ import FoodCheck from "./modalsUi/foodCheck";
 import Suggestion from "./modalsUi/suggestion";
 import Congrats from "./modalsUi/congrats";
 import Prescription from "./modalsUi/prescribtion";
-import WorkoutPage from "./pages/workOutPage"
+import WorkoutPage from "./pages/workOutPage";
 import Store from "./pages/store";
 import NewMedication from "./pages/newMed";
 import CreateNewMed from "./modalsUi/createNewMed";
@@ -26,24 +26,20 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route pa element={<Welcome />} />
         <Route element={<Onboarding />} path="/onboarding" />
         <Route element={<Welcome />} path="/" />
-        <Route
+        {/* <Route
           element={
             <ProtectedRoutes>
               <Medications />
             </ProtectedRoutes>
           }
           path="/medications"
-        />
+        /> */}
         <Route element={<Chat />} path="/chats/:chatId" />
         <Route element={<AiCall />} path="/chats/:chatId/call" />
         <Route element={<ChatWelcome />} path="/chat-welcome" />
-        <Route element={<Medications />} path="/medications" />
-        <Route element={<NotFound />} path="*" />
-
-        <Route path="/" element={<Welcome />} />
-        <Route path="/chat-welcome" element={<ChatWelcome />} />
         <Route path="/call-ai" element={<AiCall />} />
         <Route path="/medication" element={<Medication />} />
         <Route path="/feeling-modal" element={<CheckUp />} />

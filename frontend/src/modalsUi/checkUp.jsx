@@ -1,32 +1,25 @@
-import feelingImg from "../assets/feelingImg.svg"
-import Button from "../component/button"
-import Feeling from "../component/feeling"
+import feelingImg from "../assets/feelingImg.svg";
+import Feeling from "../component/feeling";
 
-function CheckUp(img){
+function CheckUp({ onSubmit }) {
+  return (
+    <div className=" space-y-6 flex flex-col items-center p-12">
+      <h3 className="font-bold text-lg"> Day 1</h3>
 
-    return(
-        <div className=" space-y-6 flex flex-col items-center p-12">
-            
+      <Feeling
+        image={<img src={feelingImg} alt="" className="h-40" />}
+        label="How are You Feeling"
+        radioOptions={["I'm good", "I'm not felling too well ", "I can't say"]}
+      />
 
-                <p> Day 1(dynamic day tracking)</p>
-
-                <Feeling 
-                image ={<img src={ feelingImg} alt=''/>} 
-                label ="How are You Feeling"
-                radioOptions={["I'm good","I'm not felling too well ","I can't say"]}
-                 
-                />
-
-
-
-                <Button name="Submit" color="#8E44AD" widthClass ="w-64"/>
-
-
-
-            
-            
-
-        </div>
-    )
+      <button
+        onClick={onSubmit}
+        type="submit"
+        className="bg-[var(--color-tertiary)] text-white rounded-lg p-3 font-bold cursor-pointer w-full"
+      >
+        Submit
+      </button>
+    </div>
+  );
 }
-export default CheckUp
+export default CheckUp;

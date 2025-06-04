@@ -1,11 +1,11 @@
 // components/ExerciseCard.jsx
-import React from 'react';
+import React from "react";
 
 const ExerciseCard = ({ exercise }) => {
   return (
     <div
-      onClick={() => window.open(exercise.link, '_blank')}
-      className="flex bg-[#FFB2BA] items-center gap-4 cursor-pointer hover:bg-gray-100 p-2 rounded  "
+      onClick={() => window.open(exercise.link, "_blank")}
+      className="flex bg-[var(--color-gradient)] items-center gap-4 cursor-pointer hover:bg-gray-100 p-2 rounded  "
     >
       <img
         src={exercise.img}
