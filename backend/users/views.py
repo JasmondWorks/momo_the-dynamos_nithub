@@ -10,7 +10,6 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = []
 
-
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
     permission_classes = []
@@ -19,7 +18,7 @@ class LoginView(generics.GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = authenticate(
-            username=serializer.validated_data['email'],
+            username=serializer.validated_data['username'],
             password=serializer.validated_data['password']
         )
         if user:

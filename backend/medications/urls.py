@@ -8,7 +8,7 @@ from .views import (
 
 urlpatterns = [
     # Medication endpoints
-    path("medications/", 
+    path("", 
          MedicationListCreateView.as_view(), 
          name="medication-list-create"),
     path("medications/<int:pk>/", 
