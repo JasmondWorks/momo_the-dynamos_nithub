@@ -2,6 +2,7 @@ from rest_framework import viewsets, permissions, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.models import Sum
+from django.db import models
 from .models import Workout, Exercise, WorkoutExercise
 from .serializers import WorkoutSerializer, ExerciseSerializer, WorkoutExerciseSerializer
 
