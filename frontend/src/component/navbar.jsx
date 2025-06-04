@@ -58,7 +58,9 @@ function Navbar() {
 
       <div className="flex gap-3 items-center">
         <div className="justify-end gap-2 items-center flex">
-          <img src={coin} alt="momo coin" className="h-10" />
+          <Link to="/store-page">
+            <img src={coin} alt="momo coin" className="h-10" />
+          </Link>
           <p className="text-black size-6">140</p>
           <img src={momoFrame} className="h-12 md:h-14" alt="momo frame" />
         </div>

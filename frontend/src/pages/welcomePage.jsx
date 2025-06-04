@@ -31,10 +31,10 @@ function Welcome() {
             <Box name="Chat" img={ChatImg} href="/chat-welcome" />
           </div>
           <div className="w-full min-w-[250px]">
-            <Box name="Medication" img={MedImg} href="/medications" />
+            <Box name="Medication" img={MedImg} href="/medication" />
           </div>
           <div className="w-full min-w-[250px]">
-            <Box name="Fitness" img={FitImg} href="/fitness" />
+            <Box name="Fitness" img={FitImg} href="/workout-page" />
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@ function Welcome() {
               healthy, stay rewarded! 🚀
             </p>
             <Link
-              to="/store"
+              to="/store-page"
               className=" h-12 w-36 bg-[#8E44AD] rounded-lg flex items-center justify-center gap-2 text-white"
             >
               Learn More <ArrowRightIcon size={15} strokeWidth={3} />
