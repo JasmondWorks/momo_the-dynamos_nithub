@@ -13,22 +13,23 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import dj_database_url
-
-
 import os
 from dotenv import load_dotenv
-load_dotenv() 
 
-DEBUG = os.environ.get("DEBUG") != "False"
-
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
-if not SECRET_KEY:
-    raise Exception("SECRET_KEY environment variable not set")
+# Load environment variables from .env file if it exists
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Try to load local settings, if not available, use environment variables
+try:
+    from .local_settings import *
+except ImportError:
+    DEBUG = os.environ.get("DEBUG") != "False"
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    if not SECRET_KEY:
+        raise Exception("SECRET_KEY environment variable not set")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -56,8 +57,10 @@ INSTALLED_APPS = [
     'medications',
     'gamification',
     'chat',
+    'fitness',
     'drf_spectacular',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -75,6 +78,7 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -148,6 +152,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -161,8 +166,7 @@ SIMPLE_JWT = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Momo Medication API',
-    'DESCRIPTION': 'API for  with MOMO medical Application',
+  
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
