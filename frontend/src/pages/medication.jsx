@@ -11,6 +11,7 @@ import FoodCheck from "../modalsUi/foodCheck";
 import Suggestion from "../modalsUi/suggestion";
 import Prescription from "../modalsUi/prescribtion";
 import Congrats from "../modalsUi/congrats";
+import NewMedication from "../component/createNewMedication";
 
 const mockMedications = [
   {
@@ -97,8 +98,13 @@ function Medication() {
       onSubmitKey: "congrats",
     },
     { key: "congrats", component: <Congrats />, onSubmitKey: null },
+    {
+      key: "new-medication",
+      component: <NewMedication />,
+      onSubmitKey: null,
+    },
   ];
-  const [activeModal, setActiveModal] = useState(null);
+  const [activeModal, setActiveModal] = useState(allModals.at(-1).key);
 
   function handleCloseModal() {
     setActiveModal(null);
@@ -136,7 +142,10 @@ function Medication() {
             ))}
           </div>
 
-          <button className="absolute bottom-5 right-5 cursor-pointer">
+          <button
+            className="absolute bottom-5 right-5 cursor-pointer"
+            onClick={() => setActiveModal("new-medication")}
+          >
             <img src={medButton} alt="add icon" className="h-20" />
           </button>
         </div>
@@ -150,6 +159,13 @@ function Medication() {
           {modal.component}
         </Modal>
       ))}
+      <Modal
+        onClose={handleCloseModal}
+        key="new-medication"
+        isOpen={activeModal === "new-medication"}
+      >
+        <NewMedication />
+      </Modal>
     </BorderLayout>
   );
 }

@@ -12,7 +12,7 @@ function Modal({ isOpen, onClose, children }) {
     >
       <div className="bg-white rounded-lg overflow-hidden shadow-lg relative">
         <button
-          className="cursor-pointer rounded-full p-1 bg-neutral-200 absolute right-5 top-5"
+          className="cursor-pointer rounded-full p-1 bg-neutral-200 absolute right-3 top-3"
           onClick={onClose}
         >
           <X color="#333" strokeWidth={3} size={18} />
