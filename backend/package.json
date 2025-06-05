@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node api.js && node app.js",
+    "dev": "node api.js && nodemon app.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
