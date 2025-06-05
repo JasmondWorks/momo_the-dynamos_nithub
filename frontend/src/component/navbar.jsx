@@ -39,7 +39,9 @@ function Navbar() {
         hasScrolled ? "bg-white shadow-md text-neutral-500" : "text-white"
       }`}
     >
-      <img src={momo} alt="momo label" />
+      <Link to="/">
+        <img src={momo} alt="momo label" />
+      </Link>
 
       {user && (
         <div className="hidden md:flex justify-center gap-5 items-center md:absolute right-[50%] translate-x-[50%]">
