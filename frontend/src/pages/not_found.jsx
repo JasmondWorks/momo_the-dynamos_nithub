@@ -3,7 +3,7 @@ import MomoLogo from "/src/assets/momoLogo.svg";
 
 function NotFound() {
   return (
-    <div className="h-screen text-center grid grid-rows-[auto_1fr]">
+    <div className="h-dvh text-center grid grid-rows-[auto_1fr]">
       {/* Navbar */}
       <div className="shadow px-4 py-2 ">
         <Link to="/" className="flex gap-3 items-center w-fit">

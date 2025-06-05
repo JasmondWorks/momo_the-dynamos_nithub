@@ -29,7 +29,7 @@ function ChatWelcome({ name = "Bolu" }) {
 
   return (
     <>
-      <div className="p-6 lg:p-12 h-[100vh]  bg-[#fdfcfc]">
+      <div className="p-6 lg:p-12 h-dvh  bg-[#fdfcfc]">
         <div className="max-w-5xl mx-auto text-sm h-full">
           <div className="p-3 px-5 border border-neutral-400 rounded-lg h-full grid grid-rows-[auto_1fr] gap-5">
             <header className="flex justify-between items-center">

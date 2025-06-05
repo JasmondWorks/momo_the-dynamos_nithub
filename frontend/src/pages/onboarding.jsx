@@ -21,7 +21,7 @@ function Onboarding() {
   const handleGoPrev = () => setStep((step) => step >= 1 && step - 1);
 
   return (
-    <div className="p-6 lg:p-12 h-[100vh] max-w-5xl mx-auto">
+    <div className="p-6 lg:p-12 h-dvh max-w-5xl mx-auto">
       <div className="p-5 pb-16 border border-neutral-400 rounded-lg h-full">
         {step === 1 && (
           <SpeakLanguage

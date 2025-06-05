@@ -48,7 +48,7 @@ const exercises = [
 
 const WorkoutPage = () => {
   return (
-    // <div className="min-h-screen p-4 md:p-6 lg:p-8 max-w-6xl mx-auto border rounded-xl ">
+    // <div className="min-h-dvh p-4 md:p-6 lg:p-8 max-w-6xl mx-auto border rounded-xl ">
     <BorderLayout>
       <div className="p-10">
         <div className="mb-20">

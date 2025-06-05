@@ -26,7 +26,7 @@ function AiCall() {
   }
 
   return (
-    <div className="p-6 lg:p-12 h-[100vh] max-w-5xl mx-auto text-sm">
+    <div className="p-6 lg:p-12 h-dvh max-w-5xl mx-auto text-sm">
       <div className="border border-neutral-400 rounded-xl h-full grid grid-rows-[auto_1fr] gap-5 lg:gap-0 relative">
         <header className="flex justify-between items-center p-5 px-8 ">
           <img src={goBackIcon} alt="back icon" className="h-4" />

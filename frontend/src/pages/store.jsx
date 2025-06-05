@@ -38,7 +38,7 @@ function Store() {
 
   return (
     <BorderLayout>
-      <div className="p-8 space-y-6 min-h-screen flex flex-col justify-center">
+      <div className="p-8 space-y-6 h-dvh flex flex-col justify-center">
         <header className="flex justify-between items-center">
           <Link to="/">
             <img src={goBackIcon} alt="back icon" className="h-4" />
