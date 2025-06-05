@@ -21,12 +21,9 @@ media/
 staticfiles/
 
 # VS Code
-.vscode/
 
 # Environments & secrets
-.env
 *.env
-.env.*
 
 # MyPy / Pyright / etc
 .mypy_cache/
@@ -64,3 +61,7 @@ node_modules/
 =======
 /migrations
 >>>>>>> backend
+temp_auto_push.bat
+temp_interactive_push.bat
+branch_structure.json
+config.bat
