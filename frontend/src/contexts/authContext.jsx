@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  const [user, setUser] = useState("Doctor");
+  const [user, setUser] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   function login(userType) {
