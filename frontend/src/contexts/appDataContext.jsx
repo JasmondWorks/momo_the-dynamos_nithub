@@ -35,7 +35,7 @@ const mockPatients = [
   },
 ];
 function AppDataProvider({ children }) {
-  const [patients, setPatients] = useState(mockPatients);
+  const [patients, setPatients] = useState([]);
   const [medications, setMedications] = useState([]);
 
   function addPatient(newPatient) {
