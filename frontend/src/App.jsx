@@ -11,25 +11,25 @@ import AiCall from "./pages/aiCall";
 import Medication from "./pages/medication";
 import WorkoutPage from "./pages/workOutPage";
 import Store from "./pages/store";
+import PatientDetails from "./pages/patientDetails";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route pa element={<Welcome />} />
         <Route element={<Onboarding />} path="/onboarding" />
         <Route element={<Welcome />} path="/" />
-        {/* <Route
-          element={
-            <ProtectedRoutes>
-              <Medications />
-            </ProtectedRoutes>
-          }
-          path="/medications"
-        /> */}
         <Route element={<Chat />} path="/chats/:chatId" />
         <Route element={<AiCall />} path="/chats/:chatId/call" />
         <Route element={<ChatWelcome />} path="/chat-welcome" />
+        <Route
+          element={
+            <ProtectedRoutes>
+              <PatientDetails />
+            </ProtectedRoutes>
+          }
+          path="patients/:patientId"
+        />
         <Route path="/call-ai" element={<AiCall />} />
         <Route
           path="/medication"

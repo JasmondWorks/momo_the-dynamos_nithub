@@ -16,6 +16,7 @@ import NewMedication from "../component/createNewMedication";
 
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
+import { useAuth } from "../contexts/authContext";
 
 const mockMedications = [
   {
@@ -109,6 +110,7 @@ function Medication() {
     },
   ];
   const [activeModal, setActiveModal] = useState(null);
+  const { user } = useAuth();
 
   function handleCloseModal() {
     setActiveModal(null);
@@ -150,12 +152,14 @@ function Medication() {
             ))}
           </div>
 
-          <button
-            className="absolute bottom-5 right-5 cursor-pointer"
-            onClick={() => setActiveModal("new-medication")}
-          >
-            <img src={medButton} alt="add icon" className="h-20" />
-          </button>
+          {user === "Doctor" && (
+            <button
+              className="absolute bottom-5 right-5 cursor-pointer"
+              onClick={() => setActiveModal("new-medication")}
+            >
+              <img src={medButton} alt="add icon" className="h-20" />
+            </button>
+          )}
         </div>
       </div>
       {allModals.map((modal) => (

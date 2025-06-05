@@ -13,8 +13,6 @@ function Navbar() {
 
   const { user, logout } = useAuth();
 
-  console.log(user);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 30) {
@@ -37,31 +35,41 @@ function Navbar() {
   }
   return (
     <div
-      className={`flex justify-between items-center px-5 ${
-        user ? "py-5" : "py-2"
-      } fixed left-0 right-0 transition-all duration-300 ${
+      className={`flex justify-between items-center px-5 py-3 fixed left-0 right-0 transition-all duration-300 z-[999] ${
         hasScrolled ? "bg-white shadow-md text-neutral-500" : "text-white"
       }`}
     >
       <img src={momo} alt="momo label" />
 
-      <div className="hidden md:flex justify-center gap-5 items-center">
-        <Link
-          to="#"
-          className={`font-bold border-b-[3px] ${
-            hasScrolled ? "!border-b-0 text-[var(--color-tertiary)]" : ""
-          } p-1`}
-        >
-          Patients
-        </Link>
-        <Link
-          to="#"
-          className="opacity-70 border-b-[3px] border-transparent p-1"
-          aria-disabled
-        >
-          Doctors
-        </Link>
-      </div>
+      {user && (
+        <div className="hidden md:flex justify-center gap-5 items-center md:absolute right-[50%] translate-x-[50%]">
+          <Link
+            to="#"
+            className={`border-b-[3px] ${
+              user === "Patient"
+                ? "border-b-white font-bold"
+                : "border-b-transparent opacity-60 cursor-not-allowed"
+            } ${
+              hasScrolled ? "!border-b-0 text-[var(--color-tertiary)]" : ""
+            } p-1`}
+          >
+            Patients
+          </Link>
+          <Link
+            to="#"
+            className={`border-b-[3px] ${
+              user === "Doctor"
+                ? "border-b-white font-bold"
+                : "border-b-transparent opacity-60 cursor-not-allowed"
+            } ${
+              hasScrolled ? "!border-b-0 text-[var(--color-tertiary)]" : ""
+            } p-1`}
+            aria-disabled
+          >
+            Doctors
+          </Link>
+        </div>
+      )}
 
       <div className="flex gap-3 items-center">
         {user && (
@@ -76,7 +84,6 @@ function Navbar() {
             <Button
               onClick={logout}
               variant="text"
-              href="/onboarding"
               className={`${
                 hasScrolled ? "!text-neutral-700" : "!text-white"
               }  !flex items-center gap-3`}
@@ -87,35 +94,34 @@ function Navbar() {
         )}
         {!user && (
           <Button
-            variant="text"
             href="/onboarding"
-            className={`w-full ${
-              hasScrolled ? "!text-neutral-700" : "!text-white"
-            }  !flex items-center gap-3`}
+            className={`w-full px-8 py-2 font-medium !flex items-center gap-3`}
           >
-            <LogIn /> <span className="hidden md:block">Login</span>
+            Get started
           </Button>
         )}
-        <button
-          onClick={() => setShowSidebar((cur) => !cur)}
-          className="space-y-1 cursor-pointer md:hidden"
-        >
-          <div
-            className={`w-[24px] h-[3px] rounded-xs ${
-              hasScrolled ? "bg-neutral-700" : "bg-white"
-            }`}
-          ></div>
-          <div
-            className={`w-[24px] h-[3px] rounded-xs ${
-              hasScrolled ? "bg-neutral-700" : "bg-white"
-            }`}
-          ></div>
-          <div
-            className={`w-[24px] h-[3px] rounded-xs ${
-              hasScrolled ? "bg-neutral-700" : "bg-white"
-            }`}
-          ></div>
-        </button>
+        {user && (
+          <button
+            onClick={() => setShowSidebar((cur) => !cur)}
+            className="space-y-1 cursor-pointer md:hidden"
+          >
+            <div
+              className={`w-[24px] h-[3px] rounded-xs ${
+                hasScrolled ? "bg-neutral-700" : "bg-white"
+              }`}
+            ></div>
+            <div
+              className={`w-[24px] h-[3px] rounded-xs ${
+                hasScrolled ? "bg-neutral-700" : "bg-white"
+              }`}
+            ></div>
+            <div
+              className={`w-[24px] h-[3px] rounded-xs ${
+                hasScrolled ? "bg-neutral-700" : "bg-white"
+              }`}
+            ></div>
+          </button>
+        )}
       </div>
 
       <SideBar showSidebar={showSidebar} onCloseSidebar={handleCloseSidebar} />

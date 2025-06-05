@@ -9,7 +9,7 @@ import padlockIcon from "../assets/padlockIcon.svg";
 import Input from "../component/input";
 import Button from "../component/button2";
 // import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
 
 function Onboarding() {
@@ -197,12 +197,13 @@ function SignUp({ onGoPrev }) {
   return (
     <div className="h-full">
       <div className="relative">
-        <button
-          onClick={onGoPrev}
+        <Link
+          // onClick={onGoPrev}
+          to="/"
           className="absolute l-0 bottom-[50%] translate-y-[50%] cursor-pointer"
         >
           <img src={goBackIcon} alt="back icon" />
-        </button>
+        </Link>
         <PageTitle title="Enter details" />
         {/* <Button
           variant="text"

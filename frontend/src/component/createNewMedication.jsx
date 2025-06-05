@@ -61,13 +61,13 @@ function NewMedication({ onSubmit }) {
         <input
           type="text"
           placeholder="Enter Drug Name"
-          className="w-full p-2 border border-neutral-500 rounded-md min-w-[350px]"
+          className="w-full p-2 border border-neutral-500 rounded-md min-w-[300px]"
           required
         />
         <select
           name=""
           id=""
-          className="w-full p-2 border border-neutral-500 rounded-md min-w-[350px]"
+          className="w-full p-2 border border-neutral-500 rounded-md min-w-[300px]"
           required
         >
           <option value="">Select frequency of use</option>
@@ -78,7 +78,7 @@ function NewMedication({ onSubmit }) {
         <select
           name=""
           id=""
-          className="w-full p-2 border border-neutral-500 rounded-md min-w-[350px]"
+          className="w-full p-2 border border-neutral-500 rounded-md min-w-[300px]"
           required
         >
           <option value="">Select duration</option>
@@ -89,7 +89,7 @@ function NewMedication({ onSubmit }) {
         <input
           type="text"
           placeholder="Enter Condition/Illness Name"
-          className="w-full p-2 border border-neutral-500 rounded-md min-w-[350px]"
+          className="w-full p-2 border border-neutral-500 rounded-md min-w-[300px]"
           required
         />
         <button
